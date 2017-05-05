@@ -1,0 +1,19 @@
+{
+  "generator-plugin-wp": {
+    "name": "Gridiron Challenge",
+    "homepage": "https://marcosven.com",
+    "description": "A code challenge for prospective WordPress devs for SendGrid at",
+    "version": "0.0.0",
+    "author": "marcosven",
+    "authoremail": "me@marcosven.com",
+    "authorurl": "https://marcosven.com",
+    "license": "GPLv2",
+    "slug": "gridiron",
+    "classname": "Gridiron_Challenge",
+    "mainclassname": "Gridiron_Challenge",
+    "classprefix": "GC_",
+    "prefix": "gridiron",
+    "year": 2017,
+    "currentVersionWP": "4.7.2"
+  }
+}

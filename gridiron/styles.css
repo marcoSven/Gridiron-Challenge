@@ -1,0 +1,248 @@
+/**
+ * Gridiron Challenge
+ * https://marcosven.com
+ *
+ * Copyright (c) 2017 marcosven
+ * Licensed under the GPLv2+ license.
+ */
+/* Specified colors - style guide http://styleguide.sendgrid.com/ */
+/* Not specified color */
+@font-face {
+  font-family: "Colfax";
+  src: url("assets/fonts/colfax-web-light.{$ext}") format("{$ext}");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Colfax";
+  src: url("assets/fonts/proxima-nova-light.{$ext}") format("{$ext}");
+  font-style: normal;
+  font-weight: normal;
+}
+
+body {
+  padding: 20px 0 50px 0;
+  margin: 0;
+  background: #294661;
+  font-family: Colfax,Helvetica,sans-serif;
+}
+
+header {
+  color: #fff;
+  text-align: center;
+}
+
+header h1 {
+  margin-bottom: 27px;
+  font-size: 30px;
+  line-height: 40px;
+  font-style: normal;
+  font-weight: 300;
+}
+
+#stadium {
+  max-width: 1000px;
+  margin: auto;
+}
+
+#field {
+  position: relative;
+  background: #4CB04F;
+  display: -ms-flexbox;
+  display: flex;
+  border: solid 3px #fff;
+  height: calc(100vw * 543.34 / 1200.0);
+  max-height: 543.34px;
+  max-width: 1200px;
+  margin: auto;
+  overflow: hidden;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+#field .yard {
+  -ms-flex: 0 0 8.3333333%;
+      flex: 0 0 8.3333333%;
+  background: #8AC24A;
+  border-right: solid 1px #fff;
+  box-sizing: border-box;
+  position: relative;
+  font-family: serif;
+}
+
+#field .yard:first-child {
+  background: #4CB04F;
+}
+
+#field .yard:nth-child(12) {
+  border: none;
+  background: #4CB04F;
+}
+
+#field .yard:after {
+  position: absolute;
+  bottom: 30px;
+  left: 100%;
+  margin-left: -12px;
+  font-size: 21px;
+  letter-spacing: 4px;
+  font-weight: bold;
+  z-index: 1;
+}
+
+#field .yard:before {
+  content: ' ';
+  height: 0;
+  position: absolute;
+  width: 0;
+  border: 5px solid transparent;
+  border-left-color: #fff;
+  bottom: 37px;
+  right: 22px;
+  transform: rotate(180deg);
+}
+
+#field .yard.down:before {
+  right: -32px;
+  z-index: 2;
+  transform: rotate(0deg);
+}
+
+#field .yard:first-child:before, #field .yard:nth-child(12):before, #field .yard.line-050:before, #field .yard.line-100:after, #field .yard.line-100:before {
+  display: none;
+}
+
+#field .yard.line-010:after {
+  content: "10";
+}
+
+#field .yard.line-020:after {
+  content: "20";
+}
+
+#field .yard.line-030:after {
+  content: "30";
+}
+
+#field .yard.line-040:after {
+  content: "40";
+}
+
+#field .yard.line-050:after {
+  content: "50";
+}
+
+#field .yard.line-060:after {
+  content: "40";
+}
+
+#field .yard.line-070:after {
+  content: "30";
+}
+
+#field .yard.line-080:after {
+  content: "20";
+}
+
+#field .yard.line-090:after {
+  content: "10";
+}
+
+#field #scrimmage {
+  background-color: #FDD835;
+  position: absolute;
+  height: 100%;
+  left: 0px;
+  width: 2px;
+  margin-left: -1px;
+  opacity: 0;
+}
+
+#field #scrimmage.grab {
+  cursor: -webkit-grab;
+}
+
+#field #scrimmage.grabbing {
+  cursor: -webkit-grabbing;
+}
+
+#field #scrimmage span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -20px;
+  margin-top: -15px;
+  width: 40px;
+  height: 30px;
+  display: block;
+  background-color: #FDD835;
+  text-align: center;
+  line-height: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #8AC24A;
+}
+
+footer {
+  margin: 30px auto;
+  padding: 20px;
+  max-width: 1000px;
+  text-align: center;
+}
+
+footer div {
+  border-radius: 2px;
+  background: #fff;
+  color: #9E9E9E;
+  padding: 20px 5px;
+}
+
+footer a {
+  color: #489be8;
+  text-decoration: none;
+  transition: color .3s;
+}
+
+footer a:hover {
+  color: #1a82e2;
+}
+
+@media only screen and (max-width: 640px) {
+  #field #scrimmage {
+    height: 2px;
+    left: 0px;
+    width: 100%;
+    margin-left: -1px;
+  }
+  #field {
+    display: block;
+    height: auto;
+    max-height: none;
+  }
+  #field .yard {
+    border-right: none;
+    width: 100%;
+    display: block;
+    height: calc(100vw / 54.334 *10);
+    border-bottom: solid 1px #fff;
+  }
+  #field .yard:before {
+    bottom: 25px;
+    left: 32px;
+    right: inherit;
+    transform: rotate(-90deg);
+  }
+  #field .yard.down:before {
+    right: -32px;
+    bottom: -37px;
+    transform: rotate(90deg);
+  }
+  #field .yard:after {
+    left: 35px;
+    bottom: -15px;
+    transform: rotate(90deg);
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

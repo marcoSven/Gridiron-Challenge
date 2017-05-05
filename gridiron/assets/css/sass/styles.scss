@@ -1,0 +1,278 @@
+/**
+ * Gridiron Challenge
+ * https://marcosven.com
+ *
+ * Copyright (c) 2017 marcosven
+ * Licensed under the GPLv2+ license.
+ */
+ /* Specified colors - style guide http://styleguide.sendgrid.com/ */
+ //body
+$color-slate: #294661;
+// field yard
+$color-grass-stain: #8AC24A;
+// scrimmage line
+$color-mango: #FDD835;
+
+ /* Not specified color */
+ //Touchdown area
+ $color-spruce: #4CB04F;
+ //footer
+ $color-steel: #9E9E9E;
+ //link
+ $color-link: #489be8;
+ //link:hover
+ $color-sendgrid-blue  :#1a82e2;
+
+
+
+
+ @mixin fontFace($family,$src, $ext, $style: normal,$weight: normal) {
+    @font-face {
+        font-family: $family;
+        src: url('#{$src}.{$ext}') format('{$ext}');
+        font-style: $style;
+        font-weight: $weight;
+    }
+}
+
+@include fontFace('Colfax','assets/fonts/colfax-web-light','woff');
+@include fontFace('Colfax','assets/fonts/proxima-nova-light','woff2');
+
+ body {
+    padding: 20px 0 50px 0;
+    margin: 0;
+    background: $color-slate;
+    font-family: Colfax,Helvetica,sans-serif;
+} // body
+
+header {
+    color: #fff;
+    text-align: center;
+
+    h1{
+        margin-bottom: 27px;
+        font-size: 30px;
+        line-height: 40px;
+        font-style: normal;
+        font-weight: 300;
+    } // h1
+
+} // header
+
+#stadium {
+    max-width: 1000px;
+    margin: auto;
+} // #stadium
+
+#field {
+    position: relative;
+    background: $color-spruce;
+    display: flex;
+    border: solid 3px #fff;
+    height: calc(100vw * 543.34 / 1200.0);
+    max-height: 543.34px;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    color: #fff;
+    box-sizing: border-box;
+
+    .yard {
+        flex: 0 0 8.3333333%;
+        background: $color-grass-stain;
+        border-right: solid 1px #fff;
+        box-sizing: border-box;
+        position: relative;
+        font-family: serif;
+
+        &:first-child {
+            background: $color-spruce
+        } // &:first-child
+
+        &:nth-child(12) {
+            border: none;
+            background: $color-spruce
+        } // &:nth-child(12)
+
+        &:after {
+            position: absolute;
+            bottom: 30px;
+            left: 100%;
+            margin-left: -12px;
+            font-size: 21px;
+            letter-spacing: 4px;
+            font-weight: bold;
+            z-index: 1;
+        } // &:after
+
+        &:before {
+            content: ' ';
+            height: 0;
+            position: absolute;
+            width: 0;
+            border: 5px solid transparent;
+            border-left-color: #fff;
+            bottom: 37px;
+            right: 22px;
+            transform: rotate(180deg);
+        } // &:before
+
+        &.down:before {
+            right: -32px;
+            z-index: 2;
+            transform: rotate(0deg);
+        } // &.down::before
+
+        &:first-child:before,
+        &:nth-child(12):before,
+        &.line-050:before,
+        &.line-100:after,
+        &.line-100:before {
+            display: none
+        } // &:first-child:before, &:nth-child(12):before, &.line-050:before, &.line-100:after, &.line-100:before
+
+        &.line-010:after {
+            content: "10";
+        } // &.line-010
+
+        &.line-020:after {
+            content: "20";
+        } // &.line-020
+
+        &.line-030:after {
+            content: "30";
+        } // &.line-030
+
+        &.line-040:after {
+            content: "40";
+        } // &.line-040
+
+        &.line-050:after {
+            content: "50";
+        } // &.line-050
+
+        &.line-060:after {
+            content: "40";
+        } // &.line-060
+
+        &.line-070:after {
+            content: "30";
+        } // &.line-070
+
+        &.line-080:after {
+            content: "20";
+        } // &.line-080
+
+        &.line-090:after {
+            content: "10";
+        } // &.line-080
+
+    } // .yard
+
+    #scrimmage {
+        background-color: $color-mango;
+        position: absolute;
+        height: 100%;
+        left: 0px;
+        width: 2px;
+        margin-left: -1px;
+        opacity: 0;
+
+        &.grab {
+            cursor: -webkit-grab;
+        } // &.grab
+
+        &.grabbing {
+            cursor: -webkit-grabbing;
+        } //&.grabbing
+
+        span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -20px;
+            margin-top: -15px;
+            width: 40px;
+            height: 30px;
+            display: block;
+            background-color: $color-mango;
+            text-align: center;
+            line-height: 30px;
+            font-size: 20px;
+            font-weight: bold;
+            color: $color-grass-stain;
+        } // &span
+
+        @media only screen and (max-width: 640px) {
+            height: 2px;
+            left: 0px;
+            width: 100%;
+            margin-left: -1px;
+        }
+
+    } // #scrimmage
+
+    @media only screen and (max-width: 640px) {
+        display: block;
+        height: auto;
+        max-height: none;
+
+        .yard {
+            border-right: none;
+            width: 100%;
+            display: block;
+            height: calc(100vw / 54.334 *10);
+            border-bottom: solid 1px #fff;
+
+            &:before {
+                bottom: 25px;
+                left: 32px;
+                right: inherit;
+                transform: rotate(-90deg);
+            } // &:before
+
+            &.down:before {
+                right: -32px;
+                bottom: -37px;
+                transform: rotate(90deg);
+            } // &.down:before
+
+            &:after {
+                left: 35px;
+                bottom: -15px;
+                transform: rotate(90deg);
+            } // &:after
+
+        } // .yard
+
+    }
+
+} // #field
+
+footer {
+    margin: 30px auto;
+    padding: 20px;
+    max-width: 1000px;
+    text-align: center;
+
+    div {
+        border-radius: 2px;
+        background: #fff;
+        color: $color-steel;
+        padding: 20px 5px;
+    }
+
+
+    a {
+        color: $color-link;
+        text-decoration: none;
+        transition: color .3s;
+
+        &:hover {
+              color:  $color-sendgrid-blue;
+        } // &:hover
+
+        } // a
+
+} // footer
+

@@ -1,0 +1,18 @@
+{
+  "name": "gridiron",
+  "description": "A code challenge for prospective WordPress devs for SendGrid at",
+  "license": "GPLv2",
+  "authors": [
+    "marcosven"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}
